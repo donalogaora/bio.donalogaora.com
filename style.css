@@ -305,3 +305,36 @@ apaypal-form {
         text-align: left; /* Ensure left-aligned text */
     }
 }
+
+.verification-block {
+  max-width: 400px;        /* Same as .bio-card */
+  margin: 0 auto;          /* Center horizontally */
+  text-align: justify;     /* Justified text */
+}
+
+.verification-block h4 {
+  text-align: justify;     /* Override center */
+  text-justify: inter-word;
+  font-family: "Arial Black", sans-serif;
+  font-size: 12px;
+  color: white;
+  line-height: 1.35;
+}
+
+/* Keep title centered */
+.verification-block titles {
+  display: block;
+  text-align: center;
+}
+
+/* Verification text responsiveness */
+@media (max-width: 600px) {
+  .verification-block {
+    max-width: 90%;   /* Match bio-card mobile width */
+  }
+
+  .verification-block h4 {
+    text-align: justify;
+    line-height: 1.4; /* Improves readability on small screens */
+  }
+}
