@@ -1,71 +1,83 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
+html {
+	height: -webkit-fill-available;
+}
+
+body {
+  padding-bottom: calc(
+    var(--footer-height) + 
+    var(--footer-gap) + 
+    env(safe-area-inset-bottom)
+  );
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(assets/background.webp);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  z-index: -1;
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(assets/background.webp);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	z-index: -1;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: Arial, sans-serif;
+	overflow-x: hidden;
 }
 
 /* ===============================
    NAVIGATION BAR
    =============================== */
 .nav-bar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 20px;
-  overflow: hidden;
-  text-align: right;
+	list-style-type: none;
+	margin: 0;
+	padding: 0 20px;
+	overflow: hidden;
+	text-align: right;
 }
 
 .nav-bar li {
-  display: inline-block;
+	display: inline-block;
 }
 
 .page-current {
-  background-color: #5d5d5d;
-  color: #ffffff;
+	background-color: #5d5d5d;
+	color: #ffffff;
 }
 
 .page-current:hover {
-  box-shadow: 6px 5px 3px #ffffff;
+	box-shadow: 6px 5px 3px #ffffff;
 }
 
 .page-other {
-  background-color: #ffffff;
-  color: #ff0000;
+	background-color: #ffffff;
+	color: #ff0000;
 } 
 
 .page-other:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-  box-shadow: 6px 5px 3px #ffffff;
+	background-color: #ff0000;
+	color: #ffffff;
+	box-shadow: 6px 5px 3px #ffffff;
 }
 
 .page-current, .page-other {
-  font-family: "Arial Black", sans-serif;
-  font-size: 14px;  
-  border-radius: 10px;
-  padding: 0.625rem 1.25rem; /* Proportional padding */
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  box-shadow: 6px 5px 3px #ff0000;
-  font-weight: bold;
-  margin: 0.3125rem; /* Responsive margin */
+	font-family: "Arial Black", sans-serif;
+	font-size: 14px;  
+	border-radius: 10px;
+	padding: 0.625rem 1.25rem; /* Proportional padding */
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 6px 5px 3px #ff0000;
+	font-weight: bold;
+	margin: 0.3125rem; /* Responsive margin */
 }
 
 /* ===============================
@@ -73,19 +85,19 @@ body::before {
    =============================== */
 /*Page Header*/
 .text-1 {
-  color: white;
-  text-align: center;
-  font-family: "Impact", sans-serif;
-  font-size: 64px;
+	color: white;
+	text-align: center;
+	font-family: "Impact", sans-serif;
+	font-size: 64px;
 }
 
 /*Section Titles*/
 .text-2 {
-  color: white;
-  text-align: center;
-  font-family: "Arial Black", sans-serif;
-  font-size: 27.344px;
-  text-transform: uppercase;
+	color: white;
+	text-align: center;
+	font-family: "Arial Black", sans-serif;
+	font-size: 27.344px;
+	text-transform: uppercase;
 }
 
 /*Platform Name*/
@@ -111,23 +123,27 @@ body::before {
 
 /*Main Text*/
 .text-5 {
-  color: white;
-  text-align: center;
-  font-family: "Arial Black", sans-serif;
-  font-size: 14px;
+	color: white;
+	text-align: center;
+	font-family: "Arial Black", sans-serif;
+	font-size: 14px;
 }
 
 .text-5-1 {
-  color: #FF0000;
-  text-decoration: none;
+	color: #FF0000;
+	text-decoration: none;
 }
 
 .text-5-1:visited {
-  color: #FF0000;
+	color: #FF0000;
 }
 
 .text-5-1:hover {
-  text-decoration: underline;
+	text-decoration: underline;
+}
+
+.text-5-2 {
+  
 }
 
 .text-6 {
@@ -149,9 +165,9 @@ body::before {
    =============================== */
 .footer {
   position: fixed;
-  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  bottom: calc(var(--footer-gap) + env(safe-area-inset-bottom));
   background-color: #333333;
   border-radius: 20px;
   padding: 5px 20px;
@@ -159,8 +175,16 @@ body::before {
   max-width: 90%;
   box-sizing: border-box;
   text-align: center;
-  font-family: Arial, sans-serif;
   color: white;
+  z-index: 1000;
+}
+
+.footer-spacer {
+  height: calc(
+    52px + 
+    5px + 
+    env(safe-area-inset-bottom)
+  );
 }
 
 /* ===============================
@@ -221,4 +245,9 @@ body::before {
     margin: 0; /* No margin for better alignment */
     margin-top: 5px; /* Add slight space below the title */
     text-decoration: none;
+}
+
+:root {
+  --footer-gap: 5px;
+  --footer-height: 52px; /* adjust if footer text wraps */
 }
